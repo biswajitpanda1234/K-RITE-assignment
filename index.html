@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
+        integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .space-around {
+    justify-content: space-around;
+}
+.space-between {
+    justify-content: space-between;
+}
+.justify-center {
+    justify-content: center;
+}
+.align-center {
+    align-items: center;
+}
+.none {
+    display: none;
+}
+.flex{
+    display: flex;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.margin-2{
+    margin-inline:.5rem ;
+}
+.black-border{
+    border: 1px solid rgb(74, 74, 74);
+}
+.small-padding {
+    padding: .5rem;
+}
+.small-padding-inline{
+    padding-inline: .5rem;
+}
+.container-padding{
+    padding: .5rem;
+}
+.margin-4{
+    margin-block: .1rem;
+    padding: .2rem;
+}
+.absolute{
+    position: absolute;
+    bottom: 1rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+/* scrollbar */
+.scroll::-webkit-scrollbar{
+    width: .1rem;
+    background-color: transparent;
+}
+
+#search{
+    outline: none;
+    border: none;
+    padding: 0;
+}
+.nested-container{
+    margin-top: .5rem;
+    margin-left: 2rem;
+}
+.main-logo-container{
+    height: 3rem;
+    width: 3rem;
+    line-height: .5rem;
+}
+.logo-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    
+}
+/* navabr hover propery */
+
+.navbar-hover:hover{
+    background-color: rgb(231, 234, 219);
+    font-weight: bold;
+}
+/* mainsection */
+main{
+    width: 80%;
+}
+#hamberger{
+    display: none;
+}
+/* searchlsit */
+
+.search-list{
+ background-color: white;
+ position: absolute;
+ width: 20rem;
+ top: 2.1rem;
+ left: 0rem;
+}
+
+/* 
+main section */
+.brand-container{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%; 
+    min-width: 900px;
+    text-align: left;
+    margin-left: 25px;
+    position: relative;
+}
+.brand-container div{
+    overflow: hidden;
+}
+.brand-container:hover{
+    background-color: aliceblue;
+}
+.catagories div{
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.company::before {
+    content: "";
+    display: inline-block;  /* Change to inline */
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    background-image: url("https://th.bing.com/th/id/OIP.iRImfueciWuUkKNmZov-XwAAAA?pid=ImgDet&w=181&h=181&c=7&dpr=1.9"); /* Assuming PNG format */
+    background-size: cover;  /* Optional: Resize image to fit (consider using background-position for more control) */
+    background-repeat: no-repeat;  /* Optional: Prevent image from repeating */
+    ; /* Added semicolon */
+    position: absolute;
+    left:-1.5rem;
+    top: 25%;
+  }
+
+.member-img{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.member-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+
+.text-wrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.tags{
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.footer{
+    width: 50%;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1000px) {
+    .left-navbar {
+      position: absolute;
+      left: -100%;
+      background-color: white;
+      opacity: 1;
+      z-index: 999;
+      
+    }
+    main{
+        width: 89%;
+    }
+    section{
+        width: 99vw;
+        
+    }
+    #product{
+        display: none;
+    }
+    #hamberger{
+        display: inline;
+        font-weight: bold;
+    }
+    .footer{
+        width: 90%;
+    }
+
+  }
+  
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex" style="height: 100vh;">
+        <!-- creating top navbar -->
+        <nav class="left-navbar" style="width: 20%; min-width: 250px; background-color: white;">
+            <div class="flex-col container-padding"
+                style=" height: 100vh;position: relative; ">
+                <div class="flex space-between align-center">
+                    <div class="flex justify-center align-center" id="line" style="height: 3rem" onclick={handleClick()}>
+                        <div class="main-logo-container">
+                            <img src="https://th.bing.com/th/id/OIP.gs0Lqrv7wTD0e6dWfNjgKAHaHa?pid=ImgDet&w=195&h=195&c=7&dpr=1.9" alt="logo" class="logo-img" />
+                        </div>
+
+                        <div style=" padding: .2rem;">
+                            <p>INC</p>
+                            <p>InnovateHub</p>
+                        </div>
+                    </div>
+                    <div style="height: 2rem; width: 2rem; border-radius: 50%;"
+                        class="flex justify-center align-center">
+                        <img src="https://th.bing.com/th/id/OIP.gs0Lqrv7wTD0e6dWfNjgKAHaHa?pid=ImgDet&w=195&h=195&c=7&dpr=1.9" alt="logo" class="logo-img" style="border-radius: 50%;" />
+                    </div>
+                </div>
+                <div class="flex space-between align-center margin-4 navbar-hover">
+                    <div class="flex align-center">
+                        <i class="ri-pen-nib-line"></i>
+                        <p>  Design team</p>
+                    </div>
+                    <div><i class="ri-pencil-ruler-2-line"></i>+1</div>
+                </div>
+                <div class="flex space-between align-center margin-4 navbar-hover">
+                    <div class="flex align-center">
+                        <i class="ri-megaphone-line"></i>
+                        <p>  Marketing team</p>
+                    </div>
+                    <div><i class="ri-pencil-ruler-2-line"></i>+2</div>
+                </div>
+                <div class="flex space-between align-center margin-4 navbar-hover">
+                    <div class="flex align-center">
+                        <i class="ri-expand-left-right-line"></i>
+                        <p>  Development team</p>
+                    </div>
+                    <div><i class="ri-pencil-ruler-2-line"></i>+3</div>
+                </div>
+                <div class="margin-4 navbar-hover">
+                    <div class="flex align-center">
+                        <i class="ri-group-2-line"></i>
+                        <p>Create a team</p>
+                    </div>
+                </div>
+                <div class="flex space-between margin-4 navbar-hover">
+                    <p>Folders</p>
+                    <i class="ri-add-fill"></i>
+                </div>
+                <div>
+                    <div class="flex space-between align-center margin-4 navbar-hover" id="product">
+                        <div class="flex">
+                            <i class="ri-folder-line"></i>
+                            <p>Products</p>
+                        </div>
+                        <i class="ri-arrow-down-s-fill"></i>
+                    </div>
+                    <!-- nested container -->
+                    <div class="nested-container none" id="nestedProduct">
+                        <p>Readmap</p>
+                        <p>Feedback</p>
+                        <p>Performance</p>
+                        <p>Team</p>
+                        <p>Analytics</p>
+                        <div class="flex align-center">
+                            <i class="ri-group-2-line"></i>
+                            <p>Add new sub</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex space-between align-center margin-4 navbar-hover" id="sales">
+                        <div class="flex">
+                            <i class="ri-folder-line"></i>
+                            <p>Sales</p>
+                        </div>
+                        <i class="ri-arrow-down-s-fill"></i>
+                    </div>
+                    <!-- nested container -->
+                    <div class="nested-container none" id="nestedSales">
+                        <p>Readmap</p>
+                        <p>Feedback</p>
+                        <p>Performance</p>
+                        <p>Team</p>
+                        <p>Analytics</p>
+                        <div class="flex align-center">
+                            <i class="ri-group-2-line"></i>
+                            <p>Add new sub</p>
+                        </div>
+                    </div>
+                    <!-- left navbar bottom part -->
+
+                </div>
+                <div>
+                    <div class="flex space-between align-center margin-4 navbar-hover" id="design">
+                        <div class="flex">
+                            <i class="ri-folder-line"></i>
+                            <p>Design</p>
+                        </div>
+                        <i class="ri-arrow-down-s-fill"></i>
+                    </div>
+                    <!-- nested container -->
+                    <div class="nested-container none" id="nestedDesign">
+                        <p>Readmap</p>
+                        <p>Feedback</p>
+                        <p>Performance</p>
+                        <p>Team</p>
+                        <p>Analytics</p>
+                        <div class="flex align-center">
+                            <i class="ri-group-2-line"></i>
+                            <p>Add new sub</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex margin-4 navbar-hover">
+                    <i class="ri-folder-line"></i>
+                    <p>Office</p>
+                </div>
+                <div class="flex margin-4 navbar-hover">
+                    <i class="ri-folder-line"></i>
+                    <p>Legal</p>
+                </div>
+                <div class="absolute" style=" width:90%;">
+                    <div class="flex margin-4 navbar-hover ">
+                        <i class="ri-user-add-line"></i>
+                        <p>Invite teammates</p>
+                    </div>
+                    <div class="flex margin-4 navbar-hover">
+                        <i class="ri-question-line"></i>
+                        <p>Help and first step</p>
+                    </div>
+                    <div class="flex space-between" style="background-color: rgb(222, 222, 222);height: 1.5rem; ">
+                        <p>7 days left on trial</p>
+                        <button style="background-color: black; color: white; border-radius: 5px;">Add billing</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- main  section -->
+
+        <main  class="margin-4">
+            <!-- main section top navbar -->
+            <section class="top-nav flex space-between align-center margin-4" style="height: 1.5rem;">
+                <h2 id="product">Products</h2>
+                <i class="ri-menu-line" id="hamberger"></i>
+
+                <div class="flex">
+                    <div class="margin-2 black-border flex justify-center align-center" style="position: relative;">
+                        <i class="ri-search-line "></i>
+                        <input type="text" placeholder="search by brand name" id="search">
+                        <div class="search-list none" style="z-index: 9999;" onclick={hide()}>
+                            
+                        </div>
+                    </div>
+                    <div class="margin-2 small-padding black-border"><i class="ri-file-copy-line "></i></div>
+                    <div class="margin-2 small-padding black-border"><i class="ri-settings-2-line "></i></div>
+                </div>
+            </section>
+
+            <!-- main sec second navbar -->
+            <section class="flex space-between " style="margin-block: 1rem;">
+                <div class="flex align-center ">
+                    <div class="flex align-center black-border margin-2">
+                        <i class="ri-qr-scan-2-fill"></i>
+                        <p>All brands</p>
+                        <i class="ri-arrow-down-s-fill"></i>
+                    </div>
+                    <div class="flex align-center black-border margin-2">
+
+                        <p>Desk</p>
+                        <i class="ri-arrow-down-s-fill"></i>
+                    </div>
+                    <div class="flex align-center black-border margin-2">
+
+                        <p>Tags</p>
+                        <i class="ri-arrow-down-s-fill"></i>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex black-border margin-2">
+                        <i class="ri-crosshair-line"></i>
+                        <p>Meeting</p>
+                    </div>
+                    <div class="flex black-border margin-2">
+                        <i class="ri-upload-2-fill"></i>
+                        <p>Import/Export</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The final main section -->
+            <section style=" width: 100%;" class="">
+                <!-- contain all brands and description -->
+
+                <div style="overflow: auto; line-height: 2rem; " class="scroll">
+
+                    <!-- heading part -->
+                    <div class="brand-container">
+                        <div class="brands">
+                            <div class="flex space-between">
+                                <p>Brands</p>
+                                <i class="ri-add-fill"></i>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+                                <p>Description</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div>
+                                <p>Member</p>
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <p>Catagories</p>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <p>Tags</p>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div class="flex space-between">
+                                <p>Next meeting</p>
+                                <i class="ri-add-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brands -->
+
+                    <!-- wix -->
+                    <div class="brand-container">
+                        <div class="brand ">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/R.aed1d1d761570cbd274fd0b2efdc836d?rik=cWCUeycW1khCog&riu=http%3a%2f%2fclipart-library.com%2fnewhp%2f444-4447860_w-png-clipart-bold-black-letter-w.png&ehk=XL62LIwYxtiJLdkn0CCGgXrcz9o1PbuBRtRDlGErpjc%3d&risl=&pid=ImgRaw&r=0" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Wix</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">Develop a personalized fit</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 2rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img " style="position: relative; right: 2.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46); ">
+                                    Automation</spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <p class="text-wrap">#DigitalTransformation</p>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">in30minutes</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- shopify -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px; ">
+                                    <img src="https://th.bing.com/th/id/OIP.7vDIDm6GOkMryriqpKDEZgAAAA?pid=ImgDet&w=191&h=191&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Shopify</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">Introduce a cloud based p...</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    E-commerce</spam>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46); margin-inline: 3px;">
+                                    B2B
+                                </spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <span>#OnlineShoping </span>
+                                <span style="margin-inline: 3px;">#DigitalTransformationg </span>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div class="flex space-between">
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">Tommorrow</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- mailchimp -->
+                    <div class="brand-container">
+                        <div class="brand ">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.LtZriEag-FKpgpoxaEoBWwAAAA?pid=ImgDet&w=191&h=191&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">MailChimp</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">Develop a mobile app aim...</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+
+
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 2rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img " style="position: relative; right: 2.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <span
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    SAAS</span>
+                                <span
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46); margin-inline: 3px;">
+                                    Mobile</span>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <span>#Techinnovation</span>
+                                <span>Cloud</span>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">Tommorrow</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- paypal -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.1CiQ1TaPYuQeYSZNtadaCgAAAA?pid=ImgDet&w=195&h=195&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Paypal</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">This programme could include</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 2rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    Marketplace</spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <span>#BuySellOnline</span>
+                                <span>#Online</span>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">in6 hours</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- disney -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.KW2tmHwfiarqLga_qmrGjwAAAA?pid=ImgDet&w=195&h=109&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Disnep</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">Introduced a B2B solution f...</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+
+
+                                <div class="member-img" style="position: relative; right: 2rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img " style="position: relative; right: 2.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    B2B</spam>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    B2C</spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <p>#Dual Partnership</p>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">No contact</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- intercom -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.TnXsOPX2E8D5drHjfCwVzQAAAA?pid=ImgDet&w=191&h=191&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;">Intercom</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">Implement an AI-driven C</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 2rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img " style="position: relative; right: 2.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    Technology</spam>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    SAAS</span>
+
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <span>#SmallFinance</span>
+                                <span style="margin-inline: 3px;">#saaaSPL</span>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">in30minutes</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- google -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.nfDRZ4jz4IjnIfusbRDEIgHaHa?pid=ImgDet&w=195&h=195&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Google</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">Offer a comprehensive cy...</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 2rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img " style="position: relative; right: 2.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    Finance</spam>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46); margin-inline: 3px;">
+                                    Automation</spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <span>#SmallFinance</span>
+                                <span style="margin-inline: 3px;">#World</span>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">in30minutes</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- evennote -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.IhUABZ0RQDSvTbsDf7G9dgAAAA?pid=ImgDet&w=191&h=191&c=7&dpr=1.9image/evennote.jpeg" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Evennote</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">This could include smart E</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    Transportation</spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <p>#LogisticsTech</p>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">Next month</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- microsoft -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.Eqf4vo8ae5PtwtwRpweRagHaHa?pid=ImgDet&w=191&h=191&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Microsoft</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">Launch an advisory service</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 1.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: 2rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img " style="position: relative; right: 2.5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_1280.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    Publishing</spam>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    B2C</spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <span>#B2C manufacturing portal</span>
+                                <span>#Portal</span>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">No contact</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- invision -->
+                    <div class="brand-container">
+                        <div class="brand">
+                            <div class="flex align-center">
+                                <div style="height: 1.5rem; width: 1.5rem; border-radius: 3px;">
+                                    <img src="https://th.bing.com/th/id/OIP.RYOaTAkkaungRB_LhEhdBAHaHa?pid=ImgDet&w=191&h=191&c=7&dpr=1.9" alt="" class="logo-img">
+
+                                </div>
+                                <p style="margin-left: 5px;" class="name">Invission</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <div>
+
+                                <p class="text-wrap">The tool would analyze free...</p>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="flex align-center">
+                                <div class="member-img">
+                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="">
+                                </div>
+                                <div class="member-img" style="position: relative; right: .5rem;">
+                                    <img src="https://cdn.pixabay.com/photo/2015/07/20/12/57/ambassador-852766_1280.jpg" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="catagories">
+                            <div>
+                                <spam
+                                    style="background-color: rgb(203, 152, 250); opacity: .7; color: rgb(34, 20, 46);">
+                                    Web Services</spam>
+                            </div>
+                        </div>
+                        <div class="tags">
+                            <div>
+                                <span>#AppIntegration</span>
+                            </div>
+                        </div>
+                        <div class="nexmeeting">
+                            <div>
+                                <span style="background-color: lightgreen;color: rgb(0, 50, 0);">Next month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="brand-container">
+                        <div class="brands">
+                            <p>10 count</p>
+                        </div>
+                        <div class="description">
+                            <p><i class="ri-add-fill"></i> Add calculation</p>
+                        </div>
+                        <div class="members">
+
+                        </div>
+                        <div class="catagories">
+                            <p><i class="ri-add-fill"></i> Add calculation</p>
+                        </div>
+                        <div class="tags">
+                            <p><i class="ri-add-fill"></i> Add calculation</p>
+
+                        </div>
+                        <div class="nexmeeting">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin: 4rem; margin-inline: auto;" class="flex space-around align-center footer">
+                    <div id="count">selected</div>
+                    <div><i class="ri-archive-line"></i> Archieve</div>
+                    <div><i class="ri-delete-bin-line"></i> Delete</div>
+                    <div>More <i class="ri-arrow-down-s-fill"></i></div>
+                </div>
+    </div>
+
+
+    </section>
+
+
+    </main>
+    </div>
+
+</body>
+<script >
+    
+// to control product nested component
+
+let product = document.getElementById("product")
+let nestedProduct = document.getElementById("nestedProduct");
+product.addEventListener("click", (evnet) => {
+    nestedSales.classList.add("none")
+    nestedDesign.classList.add("none");
+    nestedProduct.classList.toggle("none")
+})
+
+// to control sales nested componet
+let sales = document.getElementById("sales");
+let nestedSales = document.getElementById("nestedSales");
+sales.addEventListener("click", () => {
+
+    nestedSales.classList.toggle("none")
+    nestedDesign.classList.add("none");
+    nestedProduct.classList.add("none")
+})
+
+// to control design nested componet
+let design = document.getElementById("design");
+let nestedDesign = document.getElementById("nestedDesign");
+design.addEventListener("click", () => {
+
+    nestedSales.classList.add("none")
+    nestedDesign.classList.toggle("none");
+    nestedProduct.classList.add("none")
+})
+
+// brand containeer events for select elements
+
+let brandContainer = document.querySelectorAll(".brand");
+let count = document.getElementById("count");
+
+
+function printSelectCount(num) {
+    count.innerHTML = `${num} selected`
+}
+function selectCount() {
+    let company = document.querySelectorAll(".company");
+    printSelectCount(company.length)
+}
+brandContainer.forEach((ele) => {
+    ele.onclick = (event) => {
+        event.target.classList.toggle("company");
+        selectCount();
+    }
+    ele.addEventListener("mousemove", () => {
+        ele.style.cursor = "pointer";
+    })
+})
+
+
+// search elements by company name
+
+let search = document.getElementById("search");
+
+search.addEventListener("change", (event) => {
+    let elementArr = [];
+    
+    let name = document.querySelectorAll(".name");
+    
+    name.forEach((element) => {
+        if (element.innerHTML.toLowerCase().includes(event.target.value.toLowerCase())) {
+            elementArr.push(element)
+        }
+    })
+    let searchList = document.querySelector(".search-list")
+    searchList.style.display="block"
+    if (elementArr.length > 0) {
+        console.log(elementArr.length)
+        
+        searchList.classList.remove("none")
+    }
+
+    elementArr.forEach((element) => {
+        let src = element.querySelector("div");
+        let brandName = element.querySelector("p");
+
+        let div = document.createElement("div");
+        div.innerHTML = element.innerHTML
+        searchList.appendChild(div)
+    })
+
+
+})
+function hide(){
+    let searchList = document.querySelector(".search-list")
+    searchList.style.display = "none"
+}
+// responsive property
+
+let hamberger = document.getElementById("hamberger");
+hamberger.addEventListener("click",()=>{
+    
+    let nav = document.querySelector("nav")
+    nav.style.left=0
+   
+})
+function handleClick(){
+    let nav = document.querySelector("nav")
+    nav.style.left = "-100%"
+}
+</script>
+
+</html>
